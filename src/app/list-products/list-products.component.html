@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let product of products">
+            <div class="card" style="width: 18rem;">
+                <img [src]="product.imageUrl" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.id}}</h5>
+                    <p class="card-text"></p>
+                    <a routerLink="/products/{{product.id}}" class="btn btn-primary">Product details</a>
+                    <button class="btn btn-warning" (click)="onEdit(product.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="onDelete(product.id)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

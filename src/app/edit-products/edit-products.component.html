@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <form [formGroup]="productForm">
+                <img [src]="product.imageUrl" alt="">
+                <div class="formGroup">
+                    <label>Image URL</label>
+                    <input class="form-control" formControlName="imageUrl">
+                </div>
+                <div class="formGroup">
+                    <label>Description</label>
+                    <textarea class="form-control" rows="3" formControlName="description"></textarea>
+                </div>
+                <button class="btn btn-primary" (click)="editProduct()">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
