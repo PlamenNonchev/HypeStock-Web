@@ -13,10 +13,16 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatGridListModule} from '@angular/material/grid-list'
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { EditProductsComponent } from './edit-products/edit-products.component';
+import { HomeComponent } from './home/home.component';
+import { BrandReleasesComponent } from './brand-releases/brand-releases.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SwiperModule } from "swiper/angular";
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -27,6 +33,9 @@ import { EditProductsComponent } from './edit-products/edit-products.component';
     ListProductsComponent,
     DetailsProductComponent,
     EditProductsComponent,
+    HomeComponent,
+    BrandReleasesComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +44,9 @@ import { EditProductsComponent } from './edit-products/edit-products.component';
     HttpClientModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatGridListModule,
+    SwiperModule,
+    NgChartsModule,
   ],
   providers: [
     AuthService,

@@ -34,4 +34,16 @@ export class ProductService {
   deleteProduct(id: string) {
     return this.http.delete(this.productsPath + '/' + id);
   }
+
+  getHotProducts(): Observable<Array<Product>> {
+    return this.http.get<Array<Product>>(this.productsPath + '/hot');
+  }
+
+  getProductsDroppingShortly(): Observable<Array<Product>> {
+    return this.http.get<Array<Product>>(this.productsPath + '/soon');
+  }
+
+  getJustAnnouncedProducts(): Observable<Array<Product>> {
+    return this.http.get<Array<Product>>(this.productsPath + '/justAnnounced');
+  }
 }

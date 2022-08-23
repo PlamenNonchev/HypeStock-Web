@@ -1,11 +1,92 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-6">
-            <img [src]="product.imageUrl" alt="">
-        </div>
-        <div class="col-lg-6">
-            <h3>Brand: {{product.brand}}</h3>
-            <h5>Description: {{product.description}}</h5>
+<h1>{{product.brand}} {{product.model}}</h1>
+<h2>Release date: {{product.releaseDate}}</h2>
+<div class="row">
+    <div class="column">
+        <swiper [navigation]="true" class="mySwiper">
+            <ng-template swiperSlide>Slide 1</ng-template>
+            <ng-template swiperSlide>Slide 2</ng-template>
+        </swiper>
+    </div>
+    <div class="column">
+        <h1><span>Cop or Drop?</span></h1>
+        <div class="rating">
+            <!-- Thumbs up -->
+            <div class="like grow">
+              <i class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
+            </div>
+            <!-- Thumbs down -->
+            <div class="dislike grow">
+              <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
+            </div>
+          </div>
+    </div>
+</div>
+<span>{{product.description}}</span>
+<div>
+    <h1>Gallery</h1>
+</div>
+<h1>Retailers</h1>
+<div class="row">
+    <div class="col-lg-2" *ngFor="let retailer of product.retailers">
+        <div class="card" style="width: 18rem;">
+            <a [href]="retailer.websiteUrl">
+                <img class="card-img-top" [src]="retailer.imageUrl" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">{{retailer.name}}</p>
+                </div>
+            </a>
         </div>
     </div>
 </div>
+<h1>Resellers</h1>
+<h1>Price charts</h1>
+<h2>Coming soon</h2>
+<h1>Similiars models</h1>
+<div class="row">
+    <div class="col-lg-2" *ngFor="let product of product.similarProducts">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">{{product.brand}} {{product.model}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<h1>Ebay listings</h1>
+<div class="row">
+    <div class="col-lg-2" *ngFor="let product of product.ebayListings">
+        <div class="card" style="width: 18rem;">
+            <a [href]="product.url">
+                <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">{{product.title}}</p>
+                    <p class="card-text">{{product.price}}</p>
+                    <p class="card-text">{{product.price}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-2" *ngFor="let product of product.ebayListings">
+        <div class="card" style="width: 18rem;">
+            <a [href]="product.url">
+                    <p class="card-text">--> See more listings</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="flex">
+        <div class="flex-item">
+          <div style="display: block;">
+          <canvas baseChart width="400" height="400"
+                      [data]="lineChartData"
+                      [options]="lineChartOptions"
+                      [type]="lineChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+  

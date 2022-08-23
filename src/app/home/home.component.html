@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <app-navbar></app-navbar>
+    <mat-grid-list cols="3" rowHeight="100px">
+
+        <mat-grid-tile [colspan]="2" [rowspan]="4">
+            <div>
+                <img class="main-img" src="https://sneakernews.com/wp-content/uploads/2022/08/flaxslides.jpg" alt="">
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="2">
+            <div>
+                <img class="side-img" src="https://sneakernews.com/wp-content/uploads/2022/08/flaxslides.jpg" alt="">
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="2">
+            <div>
+                <img class="side-img" src="https://sneakernews.com/wp-content/uploads/2022/08/flaxslides.jpg" alt="">
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <div>
+        <h1><span>HOT RELEASES</span></h1>
+        <div class="row">
+            <div class="col-lg-2" *ngFor="let product of hotProducts">
+                <div (click)="onClickProduct(product.id)" class="card" style="width: 18rem;">
+                    <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">{{product.brand}} {{product.model}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1><span>DROPPING SHORTLY</span></h1>
+        <div class="row">
+            <div class="col-lg-2" *ngFor="let product of droppingShortly">
+                <div (click)="onClickProduct(product.id)" class="card" style="width: 18rem;">
+                    <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">{{product.brand}} {{product.model}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1><span>JUST ANNOUNCED</span></h1>
+        <div class="row">
+            <div class="col-lg-2" *ngFor="let product of justAnnounced">
+                <div (click)="onClickProduct(product.id)" class="card" style="width: 18rem;">
+                    <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">{{product.brand}} {{product.model}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

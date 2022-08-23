@@ -1,0 +1,7 @@
+<p style="text-align:center;"><img href="#" src="assets/hypestock.png" alt="Logo"></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand">Logo</a>
+        <a *ngFor="let brand of hotBrands" (click)="onClick(brand.id)" class="navbar-brand">{{brand.name}}</a>
+    </div>
+</nav>
