@@ -17,5 +17,180 @@
 }
 
 .vote-buttons {
-  height: 50px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
 }
+
+.vote-buttons p {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  padding: 4rem 0rem;
+}
+
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.like-container {
+  filter: url('#filter');
+
+}
+
+.like-btn {
+  color: #fff;
+}
+
+.like-cnt {
+
+  cursor: pointer;
+  background: #6c757d;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 75px;
+  z-index: 10;
+}
+
+#liked {
+  display: none;
+}
+
+#disliked {
+  display: none;
+}
+
+#liked:checked+label>div {
+  background: #4CAF50 !important;
+}
+
+#disliked:checked+label>div {
+  background: red;
+}
+
+.like-percentage {
+  text-align: center;
+}
+
+.section-title {
+  text-align: left;
+}
+
+.section-title h3 {
+  font-size: 35px;
+  font-family: "Main", sans-serif;
+  border-bottom: 1px solid rgb(148, 148, 148);
+  line-height: 36px;
+  margin: 10px 0 30px;
+  background: #fff;
+  padding: 0 20px 0 0;
+}
+
+.section-title h4 {
+  font-size: 25px;
+  font-family: "Main", sans-serif;
+  border-bottom: 1px solid rgb(148, 148, 148);
+  line-height: 36px;
+  margin: 10px 0 30px;
+  background: #fff;
+  padding: 0 20px 0 0;
+}
+
+.brand-section {
+  left: 0px;
+  width: calc((33.3333% - 0.666667px) * 2 + 1px);
+  top: 0px;
+  margin: 0 0 40px;
+}
+
+.brand-section p {
+  font-size: 20px;
+  font-family: "Main", sans-serif;
+}
+
+.month-releases .col.lg-2 {
+  width: 33.33%;
+  padding: 0 15px;
+}
+
+.month-releases .col.lg-2 .image-box {
+  height: 247px;
+  overflow: hidden;
+  margin: 0 0 11px;
+}
+
+.month-releases .col.lg-2 .image-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+.release-date-and-rating {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+
+.release-date {
+  font-size: 24px;
+  color: #292929;
+  font-family: 'francois_oneregular';
+  float: left;
+  letter-spacing: 2px;
+}
+
+.release-rating {
+  padding: 1px 9px 0 0;
+  float: right;
+  text-align: right;
+}
+
+.details-box h2 {
+  display: block;
+  margin: 0;
+  line-height: 22px;
+  margin: 0 0 2px;
+  font-size: 18px;
+  color: #646464;
+  font-weight: 400;
+  line-height: 26px;
+  display: block;
+}
+
+.details-box .release-price {
+  font-size: 18px;
+  color: #646464;
+  margin: 0 0 20px;
+  display: block;
+}
+
+.more-details {
+  margin: 0 0 23px;
+}
+
+.more-details p {
+  font-size: 14px;
+    color: #646464;
+    display: block;
+    margin: 0 0 3px;
+    line-height: 21px;
+}
+
+.more-details span {
+  font-size: 14px;
+  color: #646464;
+  margin: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
+  line-height: 21px;
+}
+

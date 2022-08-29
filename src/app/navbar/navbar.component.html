@@ -1,7 +1,17 @@
-<p style="text-align:center;"><img href="#" src="assets/hypestock.png" alt="Logo"></p>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand">Logo</a>
-        <a *ngFor="let brand of hotBrands" (click)="onClick(brand.id)" class="navbar-brand">{{brand.name}}</a>
+<div class="announcement-bar">
+    <p class="announcement-message">Always be in tact with major sneaker news</p>
+</div>
+<nav class="navbar">
+    <a class="navbar-logo">Hypestock</a>
+    <ul class="navbar-menu-container">
+        <li class="navbar-menu-item-container" *ngFor="let brand of hotBrands" (click)="onClick(brand.id)">
+            <a class="navbar-menu-item">
+                <p class="navbar-brand">{{brand.name}}</p>
+            </a>
+        </li>
+    </ul>
+    <div class="menu-actions-container">
+        <button type="button" class="action-button">Login</button>
     </div>
 </nav>
+<div class="pulsating-divider"></div>

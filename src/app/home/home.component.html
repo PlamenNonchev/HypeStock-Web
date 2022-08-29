@@ -1,57 +1,113 @@
+<app-navbar></app-navbar>
 <div class="wrapper">
-    <app-navbar></app-navbar>
-    <mat-grid-list cols="3" rowHeight="100px">
+    <mat-grid-list cols="3" rowHeight="100px" style="margin: 0 0 45px 0">
 
         <mat-grid-tile [colspan]="2" [rowspan]="4">
-            <div>
-                <img class="main-img" src="https://sneakernews.com/wp-content/uploads/2022/08/flaxslides.jpg" alt="">
+            <div class="grid-item">
+                <div class="grid-item-overlay">
+                    <p class="image-title">Retro Air Jordan</p>
+                    <p class="image-description">Lorem impsum dolor sit amet, consectetur adipisicing elit metus et
+                        sapien diam</p>
+                </div>
+                <img class="main-img" src="http://localhost:4200/assets/jordan.png" alt="">
             </div>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-            <div>
-                <img class="side-img" src="https://sneakernews.com/wp-content/uploads/2022/08/flaxslides.jpg" alt="">
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-            <div>
-                <img class="side-img" src="https://sneakernews.com/wp-content/uploads/2022/08/flaxslides.jpg" alt="">
+        <mat-grid-tile [colspan]="1" [rowspan]="4">
+            <div class="grid-item">
+                <div class="grid-item-overlay">
+                    <p class="image-title">Adidas</p>
+                    <p class="image-description">Feel the comfort</p>
+                </div>
+                <video playsinline autoplay muted loop class="main-img">
+                    <source src="http://localhost:4200/assets/adidas-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </mat-grid-tile>
     </mat-grid-list>
 
     <div>
-        <h1><span>HOT RELEASES</span></h1>
-        <div class="row">
-            <div class="col-lg-2" *ngFor="let product of hotProducts">
-                <div (click)="onClickProduct(product.id)" class="card" style="width: 18rem;">
-                    <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">{{product.brand}} {{product.model}}</p>
+        <div class="products-section">
+            <div class="section-title">
+                <h3>HOT RELEASES</h3>
+            </div>
+            <div class="row">
+                <div class="col lg-2" *ngFor="let product of hotProducts">
+                    <div class="image-box">
+                        <a (click)="onClickProduct(product.id)">
+                            <img [src]="product.imageUrl" alt="">
+                        </a>
                     </div>
+                    <a (click)="onClickProduct(product.id)"
+                        class="product-name"><p>{{product.brand}} {{product.model}}</p></a>
                 </div>
             </div>
         </div>
-        <h1><span>DROPPING SHORTLY</span></h1>
-        <div class="row">
-            <div class="col-lg-2" *ngFor="let product of droppingShortly">
-                <div (click)="onClickProduct(product.id)" class="card" style="width: 18rem;">
-                    <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">{{product.brand}} {{product.model}}</p>
+
+        <div class="products-section">
+            <div class="section-title">
+                <h3>DROPPING SHORTLY</h3>
+            </div>
+            <div class="row">
+                <div class="col lg-2" *ngFor="let product of hotProducts">
+                    <div class="image-box">
+                        <a (click)="onClickProduct(product.id)">
+                            <img [src]="product.imageUrl" alt="">
+                        </a>
                     </div>
+                    <a (click)="onClickProduct(product.id)"
+                        class="product-name"><p>{{product.brand}} {{product.model}}</p></a>
                 </div>
             </div>
         </div>
-        <h1><span>JUST ANNOUNCED</span></h1>
-        <div class="row">
-            <div class="col-lg-2" *ngFor="let product of justAnnounced">
-                <div (click)="onClickProduct(product.id)" class="card" style="width: 18rem;">
-                    <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">{{product.brand}} {{product.model}}</p>
+
+        <div class="products-section">
+            <div class="section-title">
+                <h3>JUST ANNOUNCED</h3>
+            </div>
+            <div class="row">
+                <div class="col lg-2" *ngFor="let product of hotProducts">
+                    <div class="image-box">
+                        <a (click)="onClickProduct(product.id)">
+                            <img [src]="product.imageUrl" alt="">
+                        </a>
                     </div>
+                    <a (click)="onClickProduct(product.id)"
+                        class="product-name"><p>{{product.brand}} {{product.model}}</p></a>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
+<div class="pulsating-divider"></div>
+<footer>
+    <div class="wrapper" style="padding: 1rem 0rem 3rem 0rem;">
+        <div class="footer">
+            <a class="footer-logo">Hypestock</a>
+            <ul class="footer-menu-container">
+                <li class="footer-menu-item-container">
+                    <a href="#" class="footer-menu-item">
+                        <p class="footer-brand">Contact</p>
+                    </a>
+                </li>
+                <li class="footer-menu-item-container">
+                    <a href="#" class="footer-menu-item">
+                        <p class="footer-brand">Advertise</p>
+                    </a>
+                </li>
+                <li class="footer-menu-item-container">
+                    <a href="#" class="footer-menu-item">
+                        <p class="footer-brand">Careers</p>
+                    </a>
+                </li>
+                <li class="footer-menu-item-container">
+                    <a href="#" class="footer-menu-item">
+                        <p class="footer-brand">Privacy</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>

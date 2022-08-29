@@ -1,52 +1,173 @@
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-
-  h1 {
-    width: 50%; 
-    border-bottom: 1px solid rgb(148, 148, 148); 
-    line-height: 0.1em;
-    margin: 10px 0 20px; 
- } 
-
- h1 span { 
-    background:#fff; 
-    padding:0 10px; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
+.section-title {
+  text-align: left;
+}
+
+.section-title h3 {
+  font-size: 35px;
+  font-family: "Main", sans-serif;
+  border-bottom: 1px solid rgb(148, 148, 148); 
+  line-height: 36px;
+  margin: 10px 0 30px; 
+  background:#fff; 
+  padding:0 20px 0 0; 
+} 
+
 .card {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-  }
-  
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  /* Add some padding inside the card container */
-  .container {
-    padding: 2px 16px;
-  }
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
 
-  .main-img {
-    max-width: 1000px;
-    max-height: 400px;
-  }
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
-  .side-img {
-    max-width: 500px;
-    max-height: 200px;
-  }
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
 
-  .wrapper {
-    width: 1200px;
-    padding: 0 15px;
-    margin: 0 auto;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: brightness(75%);
+}
+
+.grid-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-item-overlay {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  width: 100%;
+}
+
+.image-title {
+  font-family: 'Main', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.image-description {
+  font-family: 'Main', sans-serif;
+  font-size: 1rem;
+  padding-left: 0.1rem;
+  font-weight: 400;
+  color: #fafafa;
+  padding-top: 1rem;
+  width: 750px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.side-img {
+  max-width: 500px;
+  max-height: 200px;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  padding: 4rem 0rem;
+}
+
+.wrapper .footer {
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex: 10;
+}
+
+.wrapper .footer-logo {
+  font-family: 'Logo', sans-serif;
+  font-size: 2rem;
+  color: #033fff;
+  flex: 1;
+}
+
+.wrapper .footer-menu-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0px;
+  flex: 6;
+  position: relative;
+}
+
+.wrapper .footer-menu-item-container {
+  font-family: 'Main', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.wrapper .footer-menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+}
+
+
+.products-section {
+  left: 0px;
+  width: calc((33.3333% - 0.666667px) * 2 + 1px); top: 0px;
+  margin: 0 0 40px;
+}
+
+.products-section .col.lg-2 {
+  width: 25%;
+  padding: 0 15px;
+}
+
+
+.products-section .col.lg-2 .image-box {
+  height: 168px;
+  overflow: hidden;
+  margin: 0 0 11px;
+}
+
+.products-section .col.lg-2 .image-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+.products-section .col.lg-2 .product-name {
+  font-size: 16px;
+  width: 100%;
+  line-height: 20px;
+}
+
+.products-section .col.lg-2 .product-name p {
+  text-align: center;
+}
+
+.pulsating-divider {
+  width: 100%;
+  height: 2px;
+  background-color: #eee;
+}

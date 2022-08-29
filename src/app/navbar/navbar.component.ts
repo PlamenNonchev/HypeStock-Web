@@ -9,7 +9,8 @@ import { BrandService } from '../services/brand.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public hotBrands: Array<Brand>;
+  // brand type in array
+  public hotBrands: Array<any>;
 
   constructor(
     private router: Router,

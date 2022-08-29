@@ -1,0 +1,154 @@
+.announcement-bar {
+    background-color: #033fff;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0rem;
+}
+
+.announcement-message {
+    color: white;
+    font-family: "Main", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.navbar {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 10;
+}
+
+.navbar-logo {
+    font-family: 'Logo', sans-serif;
+    font-size: 2rem;
+    color: #033fff;
+    flex: 2;
+}
+
+.navbar-menu-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0px;
+    flex: 6;
+    position: relative;
+}
+
+.navbar-menu-item-container {
+    font-family: 'Main', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.navbar-menu-item-container:not(.navbar-menu-item-container:first-of-type) {
+    margin-left: 1rem;
+}
+
+.navbar-menu-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+}
+
+.navbar-brand-logo {
+    height: 20px;
+    width: auto;
+    max-width: 30px;
+    object-fit: contain;
+    margin-right: 0.5rem;
+}
+
+.menu-actions-container {
+    display: flex;
+    flex: 2;
+    justify-content: flex-end;
+}
+
+.action-button {
+    background: linear-gradient(-45deg, #033fff, #5ff4ee);
+	background-size: 200% 200%;
+	animation: gradient 4s ease infinite;
+    color: white;
+    font-family: 'Main', sans-serif;
+    font-weight: 1000;
+    padding: 0.5rem 2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.pulsating-divider {
+    width: 100%;
+    height: 2px;
+    background-color: #eee;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        padding: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content:center;
+    }
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    .navbar-menu-container {
+        margin-top: 2rem;
+    }
+    .navbar-menu-item-container {
+        margin-right: 0.25rem;
+        font-size: 0.75rem;
+    }
+    .navbar-menu-item-container:not(.navbar-menu-item-container:first-of-type) {
+        margin-left: 0.25rem;
+    }
+    .navbar-menu-item {
+        padding: 0.25rem 0.5rem;
+    }
+    .navbar-brand-logo {
+        height: 15px;
+        max-width: 20px;
+    }
+    .menu-actions-container {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    .action-button {
+        padding: 0.33rem 1rem;
+    }
+    .announcement-message {
+        font-size: 0.75rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .menu-actions-container {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+    .navbar-menu-item:first-of-type {
+        padding-left: 0;
+    }
+}
