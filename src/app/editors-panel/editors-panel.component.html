@@ -1,0 +1,16 @@
+<div>
+    <div class="editor-form">
+    <h1>Editor's panel</h1>
+        <p-tabMenu p-tabmenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+        <div *ngIf="selectedIndex === 1" class="create-form" (ngSubmit)="create()">
+            <app-createproduct></app-createproduct>
+        </div>
+        <div *ngIf="selectedIndex === 2" class="delete-form" (ngSubmit)="delete()">
+            <app-delete-product></app-delete-product>
+        </div>
+        <div *ngIf="selectedIndex === 3" class="editors-pick-form" (ngSubmit)="create()">
+            <app-editors-picks></app-editors-picks>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,13 @@
+.editor-form {
+    max-width: 470px;
+    margin: 0 auto;
+}
+
+.editor-form h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.editor-form form {
+    margin-top: 0% !important;
+}

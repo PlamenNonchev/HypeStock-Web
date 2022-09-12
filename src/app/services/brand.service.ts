@@ -16,6 +16,10 @@ export class BrandService {
     return this.http.get<Brand>(this.brandsPath + '/' + brandId);
   }
 
+  getAllBrands(): Observable<Array<Brand>> {
+    return this.http.get<Array<Brand>>(this.brandsPath + '/all');
+  }
+
   getHotBrands(): Observable<Array<Brand>> {
     return this.http.get<Array<Brand>>(this.brandsPath + '/hot');
   }

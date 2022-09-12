@@ -8,6 +8,13 @@ export interface Product {
     brand: string;
     brandId: number;
     releaseDate: string;
+    released: boolean;
+    likes: number;
+    dislikes: number;
+    likeRatio: number;
+    price: number;
+    colorway: string;
+    ebayUrl: string;
     similarProducts: Array<Product>;
     ebayListings: Array<EbayListing>;
     ebaySoldPrices: Array<number>;

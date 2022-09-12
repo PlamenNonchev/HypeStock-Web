@@ -1,23 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+
+
+const loginPath = environment.apiUrl + 'identity/login';
+const registerPath = environment.apiUrl + 'identity/register';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private loginPath = environment.apiUrl + 'identity/login';
-  private registerPath = environment.apiUrl + 'identity/register';
-
   constructor(private http: HttpClient) { }
   
   public login(data): Observable<any> {
-    return this.http.post(this.loginPath, data);
+    return this.http.post(loginPath, data);
   }
 
   public register(data): Observable<any> {
-    return this.http.post(this.registerPath, data);
+    return this.http.post(registerPath, data);
+  }
+
+  public logout(): void {
+    localStorage.clear();
   }
 
   public saveToken(token): void {

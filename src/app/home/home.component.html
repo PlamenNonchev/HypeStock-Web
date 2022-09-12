@@ -9,7 +9,7 @@
                     <p class="image-description">Lorem impsum dolor sit amet, consectetur adipisicing elit metus et
                         sapien diam</p>
                 </div>
-                <img class="main-img" src="http://localhost:4200/assets/jordan.png" alt="">
+                <img class="main-img" src="http://localhost:4200/assets/jordan (3).png" alt="">
             </div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="4">
@@ -49,7 +49,7 @@
                 <h3>DROPPING SHORTLY</h3>
             </div>
             <div class="row">
-                <div class="col lg-2" *ngFor="let product of hotProducts">
+                <div class="col lg-2" *ngFor="let product of droppingShortly">
                     <div class="image-box">
                         <a (click)="onClickProduct(product.id)">
                             <img [src]="product.imageUrl" alt="">
@@ -66,7 +66,7 @@
                 <h3>JUST ANNOUNCED</h3>
             </div>
             <div class="row">
-                <div class="col lg-2" *ngFor="let product of hotProducts">
+                <div class="col lg-2" *ngFor="let product of justAnnounced">
                     <div class="image-box">
                         <a (click)="onClickProduct(product.id)">
                             <img [src]="product.imageUrl" alt="">
@@ -82,32 +82,4 @@
 </div>
 
 <div class="pulsating-divider"></div>
-<footer>
-    <div class="wrapper" style="padding: 1rem 0rem 3rem 0rem;">
-        <div class="footer">
-            <a class="footer-logo">Hypestock</a>
-            <ul class="footer-menu-container">
-                <li class="footer-menu-item-container">
-                    <a href="#" class="footer-menu-item">
-                        <p class="footer-brand">Contact</p>
-                    </a>
-                </li>
-                <li class="footer-menu-item-container">
-                    <a href="#" class="footer-menu-item">
-                        <p class="footer-brand">Advertise</p>
-                    </a>
-                </li>
-                <li class="footer-menu-item-container">
-                    <a href="#" class="footer-menu-item">
-                        <p class="footer-brand">Careers</p>
-                    </a>
-                </li>
-                <li class="footer-menu-item-container">
-                    <a href="#" class="footer-menu-item">
-                        <p class="footer-brand">Privacy</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</footer>
+<app-footer></app-footer>

@@ -1,25 +1,39 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
+    <div>
+        <div class="login-form">
             <form [formGroup]="loginForm" (ngSubmit)="login()">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Username</label>
-                    <input type="text" class="form-control" placeholder="Enter email" formControlName="username">
+                <div class="logo">
+                    <a>Hypestock</a>
                 </div>
-                <div *ngIf="username.touched && username.errors?.required" class="alert alert-danger"> 
+                <div class="form-group">
+                    <span>Login with your username and password</span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputUsername"><b>Username</b></label>
+                    <input type="text" class="form-control" placeholder="Enter your username"
+                        formControlName="username">
+                </div>
+                <div *ngIf="username.touched && username.errors?.required" class="alert alert-danger">
                     This field is required!
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
+                    <label for="exampleInputPassword"><b>Password</b></label>
                     <input type="password" class="form-control" formControlName="password" placeholder="Password">
                 </div>
-                <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger"> 
+                <div *ngIf="password.touched && password.errors?.required" class="alert alert-danger">
                     This field is required!
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <div class="login-button">
+                    <button type="submit" class="action-button">Login</button>
+                </div>
+                <div class="divider"></div>
+                <div class="register-section">
+                    <span>Don't have an account?</span>
+                    <div class="register-button">
+                        <button routerLink="/register" class="action-button">Sign Up</button>
+                    </div>
+                </div>
             </form>
         </div>
-        <div class="col-lg-4"></div>
     </div>
 </div>

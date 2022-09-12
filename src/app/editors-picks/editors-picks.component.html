@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div>
+        <div class="editors-picks-form">
+            <form [formGroup]="editorsPicksForm" (ngSubmit)="pickProducts()">
+                <div class="form-group">
+                    <label for="mainProductId"><b>Main Product</b></label>
+                    <select class="form-control" formControlName="mainProductId">
+                        <option  *ngFor="let product of products" [value]="product.id">{{product.brand}} {{product.model}}</option>
+                    </select>
+                </div>
+                <div *ngIf="mainProductId.touched && mainProductId.errors?.required" class="alert alert-danger">
+                    This field is required!
+                </div>
+                <div class="form-group">
+                    <label for="sideProductId"><b>Side Product</b></label>
+                    <select class="form-control" formControlName="sideProductId">
+                        <option  *ngFor="let product of products" [value]="product.id">{{product.brand}} {{product.model}}</option>
+                    </select>
+                </div>
+                <div *ngIf="sideProductId.touched && sideProductId.errors?.required" class="alert alert-danger">
+                    This field is required!
+                </div>
+                <div class="pick-button" >
+                    <button [disabled]="editorsPicksForm.invalid" type="submit" class="action-button">Pick</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -28,9 +28,6 @@ export class ListProductsComponent implements OnInit {
   }
 
   public onDelete(id: string): void {
-    this.productService.deleteProduct(id).subscribe(res =>{
-      this.loadProducts();
-    });
   }
 
   private loadProducts(): void {

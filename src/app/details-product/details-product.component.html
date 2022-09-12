@@ -1,92 +1,157 @@
-<h1>{{product.brand}} {{product.model}}</h1>
-<h2>Release date: {{product.releaseDate}}</h2>
+<app-navbar></app-navbar>
+<div class="wrapper">
+    <mat-grid-list cols="3" rowHeight="120px" style="margin: 0 0 45px 0">
+
+        <mat-grid-tile [colspan]="2" [rowspan]="4">
+            <div class="grid-item">
+                <div class="grid-item-overlay">
+                    <p class="image-title">{{product.brand}} {{product.model}}</p>
+                    <p class="image-description">Release date: {{product.releaseDate}}</p>
+                </div>
+                <img class="main-img" [src]="product.imageUrl" alt="">
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="4">
+            <div class="grid-item" style="width:260px;">
+                <h1><span>Cop or Drop?</span></h1>
+                <div class="vote-bar">
+                    <div class="vote-buttons">
+                        <div class="like-container">
+                            <input type="checkbox" id="liked" />
+                            <label for="liked">
+                                <div (click)="onLike()" class="like-cnt" id="like-cnt">
+                                    <i class="like-btn material-icons">thumb_up</i>
+                                </div>
+                                <p>{{product.likes}}</p>
+                            </label>
+                        </div>
+                        <div class="dislike-container">
+                            <input type="checkbox" id="disliked" />
+                            <label for="disliked">
+                                <div (click)="onDislike()" class="like-cnt unchecked">
+                                    <i class="like-btn material-icons">thumb_down</i>
+                                </div>
+                                <p>{{product.dislikes}}</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="w3-red">
+                        <div class="w3-green" style="height:24px;" [ngStyle]="{'width': product.likeRatio + '%'}"></div>
+                    </div>
+                    <div class="like-percentage">
+                        <h4>{{product.likeRatio}}%</h4>
+                    </div>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <div class="description-section">
+        <div class="section-title">
+            <h3>Description</h3>
+        </div>
+        <p>{{product.description}}</p>
+    </div>
+    <div>
+        <!-- TODO: Update with SOLD OUT overlay -->
+        <div class="retailers-section">
+            <div class="section-title">
+                <h3>WHERE TO BUY</h3>
+            </div>
+            <div class="row" *ngIf="product.released">
+                <div class="section-title">
+                    <h4><b>Retailers</b></h4>
+                </div>
+                <div class="col lg-4" *ngFor="let retailer of product.retailers">
+                    <div class="image-box">
+                        <a href="{{retailer.websiteUrl}}">
+                            <img [src]="retailer.imageUrl" alt="">
+                        </a>
+                    </div>
+                    <a href="{{retailer.websiteUrl}}" class="retailer-name">
+                        <p>{{retailer.name}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="resellers-section" *ngIf="product.released">
+            <div class="section-title" style="margin-top: 30px;">
+                <h4><b>Resellers(eBay listings)</b></h4>
+            </div>
+            <div class="row">
+                <div class="col lg-4" *ngFor="let listing of product.ebayListings">
+                    <div class="image-box">
+                        <a href="{{listing.url}}">
+                            <img [src]="listing.imageUrl" alt="">
+                        </a>
+                    </div>
+                    <div class="details-box">
+                        <a>
+                            <h2>{{listing.title}}</h2>
+                            <span class="listing-price">{{listing.price}}</span>
+                            <span class="listing-condition">Condition: {{listing.condition}}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col lg-4">
+                    <a href="{{product.ebayUrl}}">
+                        <div class="more-listings-box">
+                            <div>
+                                <span>See more listings</span>
+                            </div>
+                            <div>
+                                <span>------></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="price-chart" *ngIf="product.released">
+        <div class="section-title">
+            <h3>RESALE PRICE CHART</h3>
+        </div>
+        <div class="flex">
+            <div class="flex-item">
+                <div style="display: block;">
+                    <canvas baseChart width="300" height="200" [data]="lineChartData" [options]="lineChartOptions"
+                        [type]="lineChartType" (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="recommended-section">
+        <div class="section-title">
+            <h3>YOU MIGHT ALSO LIKE</h3>
+        </div>
+        <div class="row">
+            <div (click)="onClickProduct(product.id)" class="col lg-4" *ngFor="let product of product.similarProducts">
+                <div class="image-box">
+                    <a>
+                        <img [src]="product.imageUrl" alt="">
+                    </a>
+                </div>
+                <a class="product-name">
+                    <p>{{product.brand}} {{product.model}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pulsating-divider"></div>
+<app-footer></app-footer>
 <div class="row">
     <div class="column">
-        <swiper [navigation]="true" class="mySwiper">
+        <!-- <swiper [navigation]="true" class="mySwiper">
             <ng-template swiperSlide>Slide 1</ng-template>
             <ng-template swiperSlide>Slide 2</ng-template>
-        </swiper>
+        </swiper> TODO: REVISIT -->
     </div>
     <div class="column">
-        <h1><span>Cop or Drop?</span></h1>
-        <div class="rating">
-            <!-- Thumbs up -->
-            <div class="like grow">
-              <i class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
-            </div>
-            <!-- Thumbs down -->
-            <div class="dislike grow">
-              <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
-            </div>
-          </div>
-    </div>
-</div>
-<span>{{product.description}}</span>
-<div>
-    <h1>Gallery</h1>
-</div>
-<h1>Retailers</h1>
-<div class="row">
-    <div class="col-lg-2" *ngFor="let retailer of product.retailers">
-        <div class="card" style="width: 18rem;">
-            <a [href]="retailer.websiteUrl">
-                <img class="card-img-top" [src]="retailer.imageUrl" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">{{retailer.name}}</p>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-<h1>Resellers</h1>
-<h1>Price charts</h1>
-<h2>Coming soon</h2>
-<h1>Similiars models</h1>
-<div class="row">
-    <div class="col-lg-2" *ngFor="let product of product.similarProducts">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">{{product.brand}} {{product.model}}</p>
-            </div>
-        </div>
-    </div>
-</div>
-<h1>Ebay listings</h1>
-<div class="row">
-    <div class="col-lg-2" *ngFor="let product of product.ebayListings">
-        <div class="card" style="width: 18rem;">
-            <a [href]="product.url">
-                <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">{{product.title}}</p>
-                    <p class="card-text">{{product.price}}</p>
-                    <p class="card-text">{{product.price}}</p>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-2" *ngFor="let product of product.ebayListings">
-        <div class="card" style="width: 18rem;">
-            <a [href]="product.url">
-                    <p class="card-text">--> See more listings</p>
-            </a>
-        </div>
-    </div>
 
-    <div class="flex">
-        <div class="flex-item">
-          <div style="display: block;">
-          <canvas baseChart width="400" height="400"
-                      [data]="lineChartData"
-                      [options]="lineChartOptions"
-                      [type]="lineChartType"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)"></canvas>
-          </div>
-        </div>
-      </div>
+    </div>
 </div>
 
-
-  
+<!-- <span>{{product.description}}</span> TODO: RETHINk -->
+<!-- <h1>Resellers</h1> TODO: MAKE CONDITIONAL BASED ON IF PRODUCT IS RELEASED OR NOT-->

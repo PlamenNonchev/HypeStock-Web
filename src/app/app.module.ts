@@ -23,6 +23,12 @@ import { BrandReleasesComponent } from './brand-releases/brand-releases.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { SwiperModule } from "swiper/angular";
 import { NgChartsModule } from 'ng2-charts';
+import { TabMenuModule} from 'primeng/tabmenu'
+import { DropdownModule } from 'primeng/dropdown';
+import { FooterComponent } from './footer/footer.component';
+import { EditorsPanelComponent } from './editors-panel/editors-panel.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { EditorsPicksComponent } from './editors-picks/editors-picks.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,10 @@ import { NgChartsModule } from 'ng2-charts';
     HomeComponent,
     BrandReleasesComponent,
     NavbarComponent,
+    FooterComponent,
+    EditorsPanelComponent,
+    DeleteProductComponent,
+    EditorsPicksComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +57,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatGridListModule,
     SwiperModule,
     NgChartsModule,
+    TabMenuModule,
+    DropdownModule,
   ],
   providers: [
     AuthService,

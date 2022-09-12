@@ -8,7 +8,7 @@
             </div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="4">
-            <div class="grid-item">
+            <div class="grid-item" style="width:260px;">
                 <h1><span>Are you a fan of {{brand.name}}?</span></h1>
                 <div class="vote-bar">
                     <div class="vote-buttons">
@@ -51,72 +51,31 @@
         <div class="section-title">
             <h3>UPCOMING RELEASES</h3>
         </div>
-        <div class="month-releases">
+        <div class="month-releases" *ngFor="let monthReleases of brand.releasesByMonth">
             <div class="section-title">
-                <h4><b>August</b></h4>
+                <h4><b>{{monthReleases.month}}</b></h4>
             </div>
             <div class="row">
-                <div class="col lg-2">
+                <div 
+                (click)="onClickProduct(product.id)"
+                class="col lg-4" *ngFor="let product of monthReleases.releases">
                     <div class="image-box">
-                        <a href="">
-                            <img src="https://s3.amazonaws.com/images.kicksfinder.com/products/thumbs/e8f9a551f09384642150b2da0ef145b3_1658518601.jpeg" alt="">
+                        <a >
+                            <img [src]="product.imageUrl" alt="">
                         </a>
                     </div>
                     <div class="details-box">
                         <div class="release-date-and-rating">
-                            <span class="release-date">08.27</span>
+                            <span class="release-date"><b>{{product.releaseDate}}</b></span>
                             <div class="release-rating">
-                                <span>{{brand.likes}} Likes</span>
+                                <span>{{product.likes}} Likes</span>
                             </div>
                         </div>
-                        <h2>Air Jordan 12 "Stealth"</h2>
-                        <span class="release-price">$ 200</span>
+                        <h2>{{product.brand}} {{product.model}}</h2>
+                        <span class="release-price">$ {{product.price}}</span>
                         <div class="more-details">
                             <p><span>Color:</span>
-                            "Stealth/Cool Grey/White"
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col lg-2">
-                    <div class="image-box">
-                        <a href="">
-                            <img src="https://s3.amazonaws.com/images.kicksfinder.com/products/thumbs/e8f9a551f09384642150b2da0ef145b3_1658518601.jpeg" alt="">
-                        </a>
-                    </div>
-                    <div class="details-box">
-                        <div class="release-date-and-rating">
-                            <span class="release-date">08.27</span>
-                            <div class="release-rating">
-                                <span>{{brand.likes}} Likes</span>
-                            </div>
-                        </div>
-                        <h2>Air Jordan 12 "Stealth"</h2>
-                        <span class="release-price">$ 200</span>
-                        <div class="more-details">
-                            <p><span>Color:</span>
-                            "Stealth/Cool Grey/White"
-                        </p>
-                        </div>
-                    </div>
-                </div><div class="col lg-2">
-                    <div class="image-box">
-                        <a href="">
-                            <img src="https://s3.amazonaws.com/images.kicksfinder.com/products/thumbs/e8f9a551f09384642150b2da0ef145b3_1658518601.jpeg" alt="">
-                        </a>
-                    </div>
-                    <div class="details-box">
-                        <div class="release-date-and-rating">
-                            <span class="release-date">08.27</span>
-                            <div class="release-rating">
-                                <span>{{brand.likes}} Likes</span>
-                            </div>
-                        </div>
-                        <h2>Air Jordan 12 "Stealth"</h2>
-                        <span class="release-price">$ 200</span>
-                        <div class="more-details">
-                            <p><span>Color:</span>
-                            "Stealth/Cool Grey/White"
+                            {{product.colorway}}
                         </p>
                         </div>
                     </div>
@@ -125,16 +84,5 @@
         </div>
     </div>
 </div>
-
-
-<div *ngFor="let monthReleases of brand.releasesByMonth">
-    <h2><span>{{monthReleases.month}}</span></h2>
-    <div class="col-lg-2" *ngFor="let product of monthReleases.releases">
-        <div (click)="onClickProduct(product.id)" class="card" style="width: 18rem;">
-            <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">{{product.brand}} {{product.model}}</p>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="pulsating-divider"></div>
+<app-footer></app-footer>

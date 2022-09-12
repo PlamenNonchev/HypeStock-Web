@@ -1,8 +1,8 @@
 <div class="announcement-bar">
-    <p class="announcement-message">Always be in tact with major sneaker news</p>
+    <p class="announcement-message">Always be on top of major sneaker news</p>
 </div>
 <nav class="navbar">
-    <a class="navbar-logo">Hypestock</a>
+    <a routerLink="/" class="navbar-logo">Hypestock</a>
     <ul class="navbar-menu-container">
         <li class="navbar-menu-item-container" *ngFor="let brand of hotBrands" (click)="onClick(brand.id)">
             <a class="navbar-menu-item">
@@ -10,8 +10,17 @@
             </a>
         </li>
     </ul>
-    <div class="menu-actions-container">
-        <button type="button" class="action-button">Login</button>
+    <div class="menu-actions-container" *ngIf="!user">
+        <button routerLink="/login" type="button" class="action-button">Login</button>
+    </div>
+    <div class="navbar-username" *ngIf="user">
+        <span>Hello, {{user}}</span>
+        <div class="menu-actions-container" *ngIf="isEditor">
+            <button routerLink="/editors-panel" type="button" class="action-button">Editor's panel</button>
+        </div>
+        <div class="menu-actions-container" *ngIf="user">
+            <button (click)="onClickLogout()" type="button" class="action-button">Logout</button>
+        </div>
     </div>
 </nav>
 <div class="pulsating-divider"></div>

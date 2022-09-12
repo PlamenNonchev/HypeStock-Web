@@ -43,6 +43,7 @@ export class DetailsProductComponent implements OnInit {
       const id = params['id'];
       return id
     }), mergeMap(id => this.productService.getProduct(id))).subscribe(res => {
+      console.log(res);
       this.product = res;
       this.initializeChart();
 
@@ -57,12 +58,11 @@ export class DetailsProductComponent implements OnInit {
   }
 
   onClickEbayListing(url: string) {
-    console.log(url);
-    //this.router.navigate([url]);
+    this.router.navigate([url]);
   }
 
-  onClickRetailer(url: string) {
-    this.router.navigate([url]);
+  onClickMoreListings() {
+    this.router.navigate([this.product.ebayUrl]);
   }
 
 
@@ -132,7 +132,7 @@ export class DetailsProductComponent implements OnInit {
       datasets: [
         {
           data: this.product.ebaySoldPrices,
-          label: 'Price',
+          label: 'Price in $',
           backgroundColor: 'rgba(148,159,177,0.2)',
           borderColor: 'rgba(148,159,177,1)',
         },
@@ -148,9 +148,23 @@ export class DetailsProductComponent implements OnInit {
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart'
+        text: 'Most recent eBay sales'
       }
     }
     };
+  }
+
+  public onLike(): void {
+    this.product.likes += 1;
+    this.productService.updateVotes(this.product).subscribe(res => {
+      this.product = res;
+    });
+  }
+
+  public onDislike(): void {
+    this.product.dislikes += 1;
+    this.productService.updateVotes(this.product).subscribe(res => {
+      this.product = res;
+    });
   }
 }

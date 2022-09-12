@@ -1,31 +1,67 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
-            <form [formGroup]="productForm" (ngSubmit)="create()">
+    <div>
+        <div class="create-form">
+            <form [formGroup]="createForm" (ngSubmit)="create()">
                 <div class="form-group">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Favorite food</mat-label>
-                        <mat-select>
-                          <mat-option>
-                          </mat-option>
-                        </mat-select>
-                      </mat-form-field>
+                    <label for="brandId"><b>Brand</b></label>
+                    <select class="form-control" formControlName="brandId">
+                        <option  *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputImageUrl1">Image URL</label>
-                    <input type="text" class="form-control" formControlName="ImageUrl">
-                </div>
-                <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.errors?.required">
+                <div *ngIf="brandId.touched && brandId.errors?.required" class="alert alert-danger">
                     This field is required!
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Description</label>
-                    <textarea class="form-control" rows="3" formControlName="Description"></textarea>
+                    <label for="model"><b>Model</b></label>
+                    <input type="text" class="form-control" placeholder="Enter product model"
+                        formControlName="model">
                 </div>
-                <button type="submit" class="btn btn-primary">Create</button>
+                <div *ngIf="model.touched && model.errors?.required" class="alert alert-danger">
+                    This field is required!
+                </div>
+                <div class="form-group">
+                    <label for="colorway"><b>Colorway</b></label>
+                    <input type="text" class="form-control" placeholder="Enter product colorway"
+                        formControlName="colorway">
+                </div>
+                <div *ngIf="colorway.touched && colorway.errors?.required" class="alert alert-danger">
+                    This field is required!
+                </div>
+                <div class="form-group">
+                    <label for="description"><b>Description</b></label>
+                    <textarea class="form-control" rows="3" formControlName="description" placeholder="Enter product description"></textarea>
+                </div>
+                <div *ngIf="description.touched && description.errors?.required" class="alert alert-danger">
+                    This field is required!
+                </div>
+                <div class="form-group">
+                    <label for="imageUrl"><b>Image Url</b></label>
+                    <input type="text" class="form-control" placeholder="Enter product image url"
+                        formControlName="imageUrl">
+                </div>
+                <div *ngIf="imageUrl.touched && imageUrl.errors?.required" class="alert alert-danger">
+                    This field is required!
+                </div>
+                <div class="form-group">
+                    <label for="releaseDate"><b>Release Date</b></label>
+                    <input type="date" class="form-control" placeholder="Enter product release date"
+                        formControlName="releaseDate">
+                </div>
+                <div *ngIf="releaseDate.touched && releaseDate.errors?.required" class="alert alert-danger">
+                    This field is required!
+                </div>
+                <div class="form-group">
+                    <label for="price"><b>Price</b></label>
+                    <input type="number" class="form-control" placeholder="Enter product price"
+                        formControlName="price">
+                </div>
+                <div *ngIf="price.touched && price.errors?.required" class="alert alert-danger">
+                    This field is required!
+                </div>
+                <div class="create-button" >
+                    <button [disabled]="createForm.invalid" type="submit" class="action-button">Create</button>
+                </div>
             </form>
         </div>
-        <div class="col-lg-4"></div>
     </div>
 </div>

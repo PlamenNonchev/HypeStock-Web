@@ -4,6 +4,7 @@ import { BrandReleasesComponent } from './brand-releases/brand-releases.componen
 import { CreateproductComponent } from './createproduct/createproduct.component';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { EditProductsComponent } from './edit-products/edit-products.component';
+import { EditorsPanelComponent } from './editors-panel/editors-panel.component';
 import { HomeComponent } from './home/home.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'products/:id', component: DetailsProductComponent, canActivate: [AuthGuardService] },
   { path: 'products/:id/edit', component: EditProductsComponent, canActivate: [AuthGuardService] },
   { path: 'brands/:id', component: BrandReleasesComponent, canActivate: [AuthGuardService] },
+  { path: 'editors-panel', component: EditorsPanelComponent, canActivate: [AuthGuardService]}, //TODO: Add guard for specific Role
 ];
 
 @NgModule({

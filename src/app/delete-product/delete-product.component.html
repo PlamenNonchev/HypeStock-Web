@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div>
+        <div class="delete-form">
+            <form [formGroup]="deleteForm" (ngSubmit)="delete()">
+                <div class="form-group">
+                    <label for="productId"><b>Product</b></label>
+                    <select class="form-control" formControlName="productId">
+                        <option  *ngFor="let product of products" [value]="product.id">{{product.brand}} {{product.model}}</option>
+                    </select>
+                </div>
+                <div *ngIf="productId.touched && productId.errors?.required" class="alert alert-danger">
+                    This field is required!
+                </div>
+                <div class="delete-button" >
+                    <button [disabled]="deleteForm.invalid" type="submit" class="action-button">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

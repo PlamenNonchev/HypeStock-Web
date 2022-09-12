@@ -16,11 +16,16 @@ export class ProductService {
     private authService: AuthService) { }
   
   create(data): Observable<Product> {
+    data.brandId = Number(data.brandId);
     return this.http.post<Product>(this.productsPath + '/create', data);
   }
 
   getProducts(brandId: number): Observable<Array<Product>> {
     return this.http.get<Array<Product>>(this.productsPath + '/GetProductsByBrand?BrandId=' + brandId);
+  }
+
+  getAll(): Observable<Array<Product>> {
+    return this.http.get<Array<Product>>(this.productsPath + '/all');
   }
 
   getProduct(id): Observable<Product> {
@@ -31,7 +36,8 @@ export class ProductService {
     return this.http.put(this.productsPath, product);
   }
 
-  deleteProduct(id: string) {
+  deleteProduct(data) {
+    let id = Number(data.productId);
     return this.http.delete(this.productsPath + '/' + id);
   }
 
@@ -45,5 +51,15 @@ export class ProductService {
 
   getJustAnnouncedProducts(): Observable<Array<Product>> {
     return this.http.get<Array<Product>>(this.productsPath + '/justAnnounced');
+  }
+
+  updateVotes(product: Product): Observable<Product> {
+    return this.http.put<Product>(this.productsPath + '/vote', product);
+  }
+
+  pickProducts(data) {
+    let mainProductId = Number(data.mainProductId);
+    let sideProductId = Number(data.sideProductId);
+    return this.http.put(this.productsPath + '/pick', { mainProductId: mainProductId, sideProductId: sideProductId});
   }
 }

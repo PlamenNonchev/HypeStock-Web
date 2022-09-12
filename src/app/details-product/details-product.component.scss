@@ -2,75 +2,337 @@
 @import "~swiper/css/navigation";
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 .column {
-    float: left;
-    width: 50%;
+  float: left;
+  width: 50%;
 }
 
 /* Clear floats after the columns */
 .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .swiper {
-    width: 100%;
-    height: 100%;
-  }
+  width: 100%;
+  height: 100%;
+}
 
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-  
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
 
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
 
-  .rating {
-    display: inline-block;
-    width: 100%;
-    margin-top: 40px;
-    padding-top: 40px;
-    text-align: center;
-  }
-  
-  .like,
-  .dislike {
-    display: inline-block;
-    cursor: pointer;
-    margin: 10px;
-  }
-  
-  .dislike:hover,
-  .like:hover {
-    color: #2EBDD1;
-    transition: all .2s ease-in-out;
-    transform: scale(1.1);
-  }
-  
-  .active {
-    color: #2EBDD1;
-  }
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rating {
+  display: inline-block;
+  width: 100%;
+  margin-top: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.like,
+.dislike {
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.dislike:hover,
+.like:hover {
+  color: #2EBDD1;
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.active {
+  color: #2EBDD1;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  padding: 4rem 0rem;
+}
+
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: brightness(0.75);
+}
+
+.grid-item-overlay {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  width: 100%;
+}
+
+.image-title {
+  font-family: 'Main', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.image-description {
+  font-family: 'Main', sans-serif;
+  font-size: 1rem;
+  padding-left: 0.1rem;
+  font-weight: 400;
+  color: #fafafa;
+  padding-top: 1rem;
+  width: 750px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.description-section {
+  left: 0px;
+  width: calc((33.3333% - 0.666667px) * 2 + 1px);
+  top: 0px;
+  margin: 0 0 40px;
+}
+
+.description-section p {
+  font-size: 20px;
+  font-family: "Main", sans-serif;
+}
+
+.vote-buttons {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.vote-buttons p {
+  display: flex;
+  justify-content: center;
+}
+
+.like-container {
+  filter: url('#filter');
+
+}
+
+.like-cnt {
+
+  cursor: pointer;
+  background: #6c757d;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 75px;
+  z-index: 10;
+}
+
+.like-btn {
+  color: #fff;
+}
+
+#liked {
+  display: none;
+}
+
+#disliked {
+  display: none;
+}
+
+#liked:checked+label>div {
+  background: #4CAF50 !important;
+}
+
+#disliked:checked+label>div {
+  background: red;
+}
+
+.like-percentage {
+  text-align: center;
+}
+
+.grid-item h1 {
+  text-align: center;
+}
+
+.section-title h3 {
+  font-size: 35px;
+  font-family: "Main", sans-serif;
+  border-bottom: 1px solid rgb(148, 148, 148);
+  line-height: 36px;
+  margin: 10px 0 30px;
+  background: #fff;
+  padding: 0 20px 0 0;
+}
+
+.retailers-section {
+  left: 0px;
+  top: 0px;
+  margin: 0 0 40px;
+}
+
+.retailers-section .col.lg-4 {
+  width: 25%;
+  padding: 0 15px;
+  min-width: 25%;
+  max-width: 25%;
+}
+
+.retailers-section .col.lg-4 .image-box {
+  height: 183px;
+  overflow: hidden;
+  margin: 0 0 11px;
+}
+
+.retailers-section .col.lg-4 .retailer-name {
+  font-size: 16px;
+  width: 100%;
+  line-height: 20px;
+}
+
+.retailers-section .col.lg-4 .retailer-name p {
+  text-align: center;
+}
+
+.retailers-section .col.lg-4 .image-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+.section-title h4 {
+  font-size: 25px;
+  font-family: "Main", sans-serif;
+  line-height: 36px;
+  background: #fff;
+  padding: 0 20px 0 0;
+}
+
+.resellers-section .col.lg-4 {
+  min-width: 25%;
+  max-width: 25%;
+  padding: 0 15px;
+}
+
+.resellers-section .col.lg-4 .image-box {
+  height: 247px;
+  overflow: hidden;
+  margin: 0 0 11px;
+  border-style: groove;
+  border-width: 1px;
+}
+
+.resellers-section .col.lg-4 .image-box img {
+  max-width: 100%;
+  height: auto;
+  height: 247px;
+  object-fit: contain;
+}
+
+.resellers-section .col.lg-4 .more-listings-box {
+  height: 247px;
+  overflow: hidden;
+  margin: 0 0 11px;
+  border-style: groove;
+  border-width: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resellers-section .col.lg-4 .more-listings-box img {
+  max-width: 100%;
+  height: auto;
+  height: 247px;
+  object-fit: contain;
+}
+
+.details-box h2 {
+  display: block;
+  margin: 0;
+  line-height: 22px;
+  margin: 0 0 2px;
+  font-size: 18px;
+  color: #646464;
+  font-weight: 400;
+  line-height: 26px;
+  display: block;
+}
+
+.details-box .listing-price {
+  font-size: 18px;
+  color: #646464;
+  margin: 0 0 20px;
+  display: block;
+}
+
+.details-box .listing-condition {
+  font-size: 18px;
+  color: #646464;
+  margin: 0 0 20px;
+  display: block;
+}
+
+.recommended-section .col.lg-4 {
+  min-width: 25%;
+  max-width: 25%;
+  padding: 0 15px;
+}
+
+.recommended-section .col.lg-4 .image-box {
+  height: 183px;
+  overflow: hidden;
+  margin: 0 0 11px;
+}
+
+.recommended-section .col.lg-4 .image-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+.recommended-section .col.lg-4 .product-name {
+  font-size: 16px;
+  width: 100%;
+  line-height: 20px;
+}
+
+.recommended-section .col.lg-4 .product-name p {
+  text-align: center;
+}
+.pulsating-divider {
+  width: 100%;
+  height: 2px;
+  background-color: #eee;
+}

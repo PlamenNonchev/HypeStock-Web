@@ -1,0 +1,96 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+}
+
+.logo a{
+    font-family: 'Logo', sans-serif;
+    font-size: 2.5rem;
+    color: #033fff;
+}
+
+.login-form {
+    max-width: 470px;
+    margin: 0 auto;
+}
+
+.login-form span {
+    color: black;
+    font-family: "Helvetica neue", helvetica;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+}
+
+.login-form label {
+    color: black;
+    font-family: "Helvetica neue", helvetica;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    color: #000;
+    font-size: 15px;
+    height: 48px;
+    padding: 13px 12px;
+}
+
+.action-button {
+    background: linear-gradient(-45deg, #5ff4ee, #033fff);
+	background-size: 200% 200%;
+	animation: gradient 4s ease infinite;
+    color: white;
+    font-family: 'Main', sans-serif;
+    font-weight: 1000;
+    padding: 0.5rem 2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer; 
+}
+
+.login-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.divider {
+    border-bottom: 1px solid;
+    border-color: #ccc;
+    margin-top: 2rem;
+}
+
+.register-section span{
+    color: black;
+    font-family: "Helvetica neue", helvetica;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.register-button {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+
+.register-button button {
+    background: linear-gradient(-45deg, #033fff, #5ff4ee);
+	background-size: 200% 200%;
+	animation: gradient 4s ease infinite;
+    color: white;
+    font-family: 'Main', sans-serif;
+    font-weight: 1000;
+    padding: 0.5rem 2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
