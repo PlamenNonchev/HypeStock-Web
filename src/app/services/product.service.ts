@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { EditorsPicks } from '../models/editorsPicks';
 import { Product } from '../models/Product';
 import { AuthService } from './auth.service';
 
@@ -73,5 +74,9 @@ export class ProductService {
 
   getProductsLikedByUser(): Observable<Array<Product>> {
     return this.http.get<Array<Product>>(this.productsPath + '/liked');
+  }
+
+  getEditorsPicks(): Observable<EditorsPicks> {
+    return this.http.get<EditorsPicks>(this.productsPath + '/getPicks');
   }
 }

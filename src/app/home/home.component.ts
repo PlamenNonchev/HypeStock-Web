@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Brand } from '../models/brand';
+import { EditorsPicks } from '../models/editorsPicks';
 import { Product } from '../models/Product';
 import { AuthService } from '../services/auth.service';
 import { BrandService } from '../services/brand.service';
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
   public hotProducts: Array<Product>;
   public droppingShortly: Array<Product>;
   public justAnnounced: Array<Product>;
+  public editorsPicks: EditorsPicks;
 
   constructor(
     private router: Router,
@@ -40,9 +42,12 @@ export class HomeComponent implements OnInit {
     this.productService.getJustAnnouncedProducts().subscribe(res => {
       this.justAnnounced = res;
     })
+    this.productService.getEditorsPicks().subscribe(res => {
+      this.editorsPicks = res;
+    })
   }
 
-  onClickProduct(id: string){
+  onClickProduct(id){
     this.router.navigate(['products', id]);
   }
 }

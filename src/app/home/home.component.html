@@ -1,27 +1,23 @@
 <app-navbar></app-navbar>
 <div class="wrapper">
-    <mat-grid-list cols="3" rowHeight="100px" style="margin: 0 0 45px 0">
-
+    <span class="editors-picks-section">Editor's Picks</span>
+    <mat-grid-list cols="3" rowHeight="100px" style="margin: 10px 0 45px 0">
         <mat-grid-tile [colspan]="2" [rowspan]="4">
-            <div class="grid-item">
+            <div class="grid-item" (click)="onClickProduct(editorsPicks.mainProduct.id)">
                 <div class="grid-item-overlay">
-                    <p class="image-title">Retro Air Jordan</p>
-                    <p class="image-description">Lorem impsum dolor sit amet, consectetur adipisicing elit metus et
-                        sapien diam</p>
+                    <p class="image-title">{{editorsPicks.mainProduct.brand}} {{editorsPicks.mainProduct.model}}</p>
+                    <p class="image-description">{{editorsPicks.mainProduct.releaseDate}}</p>
                 </div>
-                <img class="main-img" src="http://localhost:4200/assets/jordan (3).png" alt="">
+                <img class="main-img" [src]="editorsPicks.mainProduct.imageUrl" alt="">
             </div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1" [rowspan]="4">
-            <div class="grid-item">
+            <div class="grid-item" (click)="onClickProduct(editorsPicks.sideProduct.id)">
                 <div class="grid-item-overlay">
-                    <p class="image-title">Adidas</p>
-                    <p class="image-description">Feel the comfort</p>
+                    <p class="side-image-title">{{editorsPicks.sideProduct.brand}} {{editorsPicks.sideProduct.model}}</p>
+                    <p class="image-description">{{editorsPicks.sideProduct.releaseDate}}</p>
                 </div>
-                <video playsinline autoplay muted loop class="main-img">
-                    <source src="http://localhost:4200/assets/adidas-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                    <img class="main-img" [src]="editorsPicks.sideProduct.imageUrl" alt="">
             </div>
         </mat-grid-tile>
     </mat-grid-list>
