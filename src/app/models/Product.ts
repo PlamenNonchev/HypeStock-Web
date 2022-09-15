@@ -15,6 +15,8 @@ export interface Product {
     price: number;
     colorway: string;
     ebayUrl: string;
+    hasUserLiked: boolean;
+    hasUserDisliked: boolean;
     similarProducts: Array<Product>;
     ebayListings: Array<EbayListing>;
     ebaySoldPrices: Array<number>;

@@ -47,4 +47,8 @@ export class NavbarComponent implements OnInit {
   public onClick(id: number) {
     this.router.navigate(['brands', id]);
   }
+
+  public onClickUserLikes(){
+    this.router.navigate(['user-likes']);
+  }
 }

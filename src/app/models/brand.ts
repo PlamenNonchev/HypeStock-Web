@@ -9,6 +9,8 @@ export class Brand {
     public likes: number;
     public dislikes: number;
     public likeRatio: number;
+    public hasUserLiked: boolean;
+    public hasUserDisliked: boolean;
 }
 
 export class MonthReleases {

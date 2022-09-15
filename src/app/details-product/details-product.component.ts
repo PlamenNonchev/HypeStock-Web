@@ -155,16 +155,22 @@ export class DetailsProductComponent implements OnInit {
   }
 
   public onLike(): void {
-    this.product.likes += 1;
-    this.productService.updateVotes(this.product).subscribe(res => {
-      this.product = res;
-    });
+    if (!this.product.hasUserLiked && !this.product.hasUserDisliked) {
+      this.product.likes += 1;
+      this.product.hasUserLiked = true;
+      this.productService.like(this.product.id).subscribe(res => {
+        console.log(res)
+      });
+    }
   }
 
   public onDislike(): void {
-    this.product.dislikes += 1;
-    this.productService.updateVotes(this.product).subscribe(res => {
-      this.product = res;
-    });
+    if (!this.product.hasUserLiked && !this.product.hasUserDisliked) {
+      this.product.likes += 1;
+      this.product.hasUserLiked = true;
+      this.productService.dislike(this.product.id).subscribe(res => {
+        console.log(res)
+      });
+    }
   }
 }

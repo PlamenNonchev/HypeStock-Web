@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, mergeMap } from 'rxjs';
 import { Brand, MonthReleases } from '../models/brand';
+import { AuthService } from '../services/auth.service';
 import { BrandService } from '../services/brand.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-brand-releases',
@@ -31,20 +33,27 @@ export class BrandReleasesComponent implements OnInit {
   }
 
   public onLike(): void {
-    this.brand.likes += 1;
-    this.brandService.updateVotes(this.brand).subscribe(res => {
-      this.brand = res;
-    });
+    if (!this.brand.hasUserDisliked && !this.brand.hasUserLiked){
+      this.brand.likes += 1;
+      this.brand.hasUserLiked = true;
+      this.brandService.like(this.brand.id).subscribe(res => {
+        console.log(res);
+      });
+    }
   }
 
   public onDislike(): void {
-    this.brand.dislikes += 1;
-    this.brandService.updateVotes(this.brand).subscribe(res => {
-      this.brand = res;
-    });
+    if (!this.brand.hasUserLiked && !this.brand.hasUserDisliked){
+      this.brand.dislikes += 1;
+      this.brand.hasUserDisliked = true;
+      this.brandService.dislike(this.brand.id).subscribe(res => {
+        console.log(res);
+      });
+    }
   }
 
   onClickProduct(id: string){
     this.router.navigate(['products', id]);
   }
+
 }

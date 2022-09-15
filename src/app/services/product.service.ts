@@ -57,9 +57,21 @@ export class ProductService {
     return this.http.put<Product>(this.productsPath + '/vote', product);
   }
 
+  like(productId: number): Observable<Product> {
+    return this.http.put<Product>(this.productsPath + '/like', productId);
+  }
+
+  dislike(productId: number): Observable<Product> {
+    return this.http.put<Product>(this.productsPath + '/dislike', productId);
+  }
+
   pickProducts(data) {
     let mainProductId = Number(data.mainProductId);
     let sideProductId = Number(data.sideProductId);
     return this.http.put(this.productsPath + '/pick', { mainProductId: mainProductId, sideProductId: sideProductId});
+  }
+
+  getProductsLikedByUser(): Observable<Array<Product>> {
+    return this.http.get<Array<Product>>(this.productsPath + '/liked');
   }
 }

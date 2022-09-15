@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div>
+        <div class="likes-container">
+            <div class="title">
+                <i class="fa fa-heart" style="font-size:36px;color:red"></i>
+                <div class="likes-title">
+                    <span>User likes</span>
+                </div>
+            </div>
+            <div class="pulsating-divider"></div>
+            <div (click)="onClickProduct(product.id)" class="product-card" *ngFor="let product of likedProducts">
+                <div class="image-box">
+                    <img [src]="product.imageUrl">
+                </div>
+                <div class="product-details">
+                    <div class="release-date-and-rating">
+                        <span class="release-date"><b>{{product.releaseDate}}</b></span>
+                        <div class="release-rating">
+                            <span>{{product.likes}} Likes</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>{{product.brand}} {{product.model}}</h2>
+                    </div>
+                    <span class="release-price">${{product.price}}</span>
+                    <div class="more-details">
+                        <p><span>Color:</span>
+                            {{product.colorway}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

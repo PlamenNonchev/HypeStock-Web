@@ -169,3 +169,8 @@
         padding-left: 0;
     }
 }
+
+.user-likes {
+    padding-top: 3px;
+    padding-right: 10px;
+}

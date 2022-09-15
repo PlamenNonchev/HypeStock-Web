@@ -17,18 +17,16 @@
                 <div class="vote-bar">
                     <div class="vote-buttons">
                         <div class="like-container">
-                            <input type="checkbox" id="liked" />
                             <label for="liked">
-                                <div (click)="onLike()" class="like-cnt" id="like-cnt">
+                                <div (click)="onLike()" class="like-cnt" [ngStyle]="{'background-color': product.hasUserLiked ? '#4CAF50' : ''}">
                                     <i class="like-btn material-icons">thumb_up</i>
                                 </div>
                                 <p>{{product.likes}}</p>
                             </label>
                         </div>
                         <div class="dislike-container">
-                            <input type="checkbox" id="disliked" />
                             <label for="disliked">
-                                <div (click)="onDislike()" class="like-cnt unchecked">
+                                <div (click)="onDislike()" class="like-cnt unchecked" [ngStyle]="{'background-color': product.hasUserDisliked ? 'red' : ''}">
                                     <i class="like-btn material-icons">thumb_down</i>
                                 </div>
                                 <p>{{product.dislikes}}</p>

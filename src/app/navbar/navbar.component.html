@@ -14,6 +14,9 @@
         <button routerLink="/login" type="button" class="action-button">Login</button>
     </div>
     <div class="navbar-username" *ngIf="user">
+        <div class="user-likes">
+            <i (click)="onClickUserLikes()" class="fa fa-heart" style="font-size:30px;"></i>
+        </div>
         <span>Hello, {{user}}</span>
         <div class="menu-actions-container" *ngIf="isEditor">
             <button routerLink="/editors-panel" type="button" class="action-button">Editor's panel</button>

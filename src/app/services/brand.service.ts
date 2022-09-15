@@ -24,7 +24,11 @@ export class BrandService {
     return this.http.get<Array<Brand>>(this.brandsPath + '/hot');
   }
 
-  updateVotes(brand: Brand): Observable<Brand> {
-    return this.http.put<Brand>(this.brandsPath + '/vote', brand);
+  like(brandId: number): Observable<Brand> {
+    return this.http.put<Brand>(this.brandsPath + '/like', brandId);
+  }
+
+  dislike(brandId: number): Observable<Brand> {
+    return this.http.put<Brand>(this.brandsPath + '/dislike', brandId);
   }
 }

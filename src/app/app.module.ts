@@ -29,6 +29,7 @@ import { FooterComponent } from './footer/footer.component';
 import { EditorsPanelComponent } from './editors-panel/editors-panel.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { EditorsPicksComponent } from './editors-picks/editors-picks.component';
+import { UserLikesComponent } from './user-likes/user-likes.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { EditorsPicksComponent } from './editors-picks/editors-picks.component';
     EditorsPanelComponent,
     DeleteProductComponent,
     EditorsPicksComponent,
+    UserLikesComponent,
   ],
   imports: [
     BrowserModule,

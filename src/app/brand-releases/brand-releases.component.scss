@@ -62,21 +62,21 @@
   z-index: 10;
 }
 
-#liked {
-  display: none;
-}
+// #liked {
+//   display: none;
+// }
 
-#disliked {
-  display: none;
-}
+// #disliked {
+//   display: none;
+// }
 
-#liked:checked+label>div {
-  background: #4CAF50 !important;
-}
+// #liked:checked+label>div {
+//   background: #4CAF50 !important;
+// }
 
-#disliked:checked+label>div {
-  background: red;
-}
+// #disliked:checked+label>div {
+//   background: red;
+// }
 
 .like-percentage {
   text-align: center;
