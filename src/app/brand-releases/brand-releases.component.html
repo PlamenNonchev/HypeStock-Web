@@ -14,7 +14,8 @@
                     <div class="vote-buttons">
                         <div class="like-container">
                             <label for="liked">
-                                <div (click)="onLike()" class="like-cnt" [ngStyle]="{'background-color': brand.hasUserLiked ? '#4CAF50' : ''}">
+                                <div (click)="onLike()" class="like-cnt"
+                                    [ngStyle]="{'background-color': brand.hasUserLiked ? '#4CAF50' : ''}">
                                     <i class="like-btn material-icons">thumb_up</i>
                                 </div>
                                 <p>{{brand.likes}}</p>
@@ -22,7 +23,8 @@
                         </div>
                         <div class="dislike-container">
                             <label for="disliked">
-                                <div (click)="onDislike()" class="like-cnt unchecked" [ngStyle]="{'background-color': brand.hasUserDisliked ? 'red' : ''}">
+                                <div (click)="onDislike()" class="like-cnt unchecked"
+                                    [ngStyle]="{'background-color': brand.hasUserDisliked ? 'red' : ''}">
                                     <i class="like-btn material-icons">thumb_down</i>
                                 </div>
                                 <p>{{brand.dislikes}}</p>
@@ -39,11 +41,28 @@
             </div>
         </mat-grid-tile>
     </mat-grid-list>
-    <div class="brand-section">
-        <div class="section-title">
-            <h3>About {{brand.name}}</h3>
+    <div class="description-email">
+        <div class="brand-section">
+            <div class="section-title">
+                <h3>About {{brand.name}}</h3>
+            </div>
+            <p>{{brand.description}}</p>
         </div>
-        <p>{{brand.description}}</p>
+        <div class="email-section">
+            <div class="email-message">
+                <span>Subscribe to receive notifications for new {{brand.name}} releases</span>
+            </div>
+
+            <form [formGroup]="emailForm" (ngSubmit)="subscribe()">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter your email address"
+                        formControlName="email">
+                </div>
+                <div class="subscribe-button">
+                    <button class="action-button">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="releases-section">
         <div class="section-title">
@@ -54,11 +73,10 @@
                 <h4><b>{{monthReleases.month}}</b></h4>
             </div>
             <div class="row">
-                <div 
-                (click)="onClickProduct(product.id)"
-                class="col lg-4" *ngFor="let product of monthReleases.releases">
+                <div (click)="onClickProduct(product.id)" class="col lg-4"
+                    *ngFor="let product of monthReleases.releases">
                     <div class="image-box">
-                        <a >
+                        <a>
                             <img [src]="product.imageUrl" alt="">
                         </a>
                     </div>
@@ -73,8 +91,8 @@
                         <span class="release-price">$ {{product.price}}</span>
                         <div class="more-details">
                             <p><span>Color:</span>
-                            {{product.colorway}}
-                        </p>
+                                {{product.colorway}}
+                            </p>
                         </div>
                     </div>
                 </div>

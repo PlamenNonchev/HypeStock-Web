@@ -5,6 +5,7 @@ import { Brand, MonthReleases } from '../models/brand';
 import { AuthService } from '../services/auth.service';
 import { BrandService } from '../services/brand.service';
 import jwt_decode from 'jwt-decode';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-brand-releases',
@@ -14,10 +15,17 @@ import jwt_decode from 'jwt-decode';
 export class BrandReleasesComponent implements OnInit {
   public brand: Brand;
 
+  public emailForm: FormGroup;
+
   constructor(
+    private fb: FormBuilder,
     private route: ActivatedRoute,
     private brandService: BrandService,
-    private router: Router) { }
+    private router: Router) {
+      this.emailForm = this.fb.group( {
+        'email': ['', [Validators.required]],
+      })
+     }
 
   ngOnInit(): void {
     this.fetchData();
@@ -54,6 +62,15 @@ export class BrandReleasesComponent implements OnInit {
 
   onClickProduct(id: string){
     this.router.navigate(['products', id]);
+  }
+
+  get email() {
+    return this.emailForm.get('email');
+  }
+
+  subscribe() {
+    //TODO: Implement
+    console.log("Subscribed!")
   }
 
 }

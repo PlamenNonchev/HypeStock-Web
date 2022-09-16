@@ -17,10 +17,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'create', component: CreateproductComponent, canActivate: [AuthGuardService] },
-  { path: 'products', component: ListProductsComponent, canActivate: [AuthGuardService] },
-  { path: 'products/:id', component: DetailsProductComponent, canActivate: [AuthGuardService] },
-  { path: 'products/:id/edit', component: EditProductsComponent, canActivate: [AuthGuardService] },
-  { path: 'brands/:id', component: BrandReleasesComponent, canActivate: [AuthGuardService] },
+  { path: 'products/:id', component: DetailsProductComponent },
+  { path: 'brands/:id', component: BrandReleasesComponent},
   { path: 'editors-panel', component: EditorsPanelComponent, canActivate: [AuthGuardService]}, //TODO: Add guard for specific Role
   { path: 'user-likes', component: UserLikesComponent, canActivate: [AuthGuardService]},
 ];
